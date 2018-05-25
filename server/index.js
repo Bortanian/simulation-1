@@ -11,6 +11,7 @@ massive(process.env.CONNECTION_STRING).then(db => app.set('db', db))
 
 app.get('/api/inventory', ctrl.getInventory)
 app.post('/api/product', ctrl.create)
+app.delete('/api/product/:id', ctrl.delete)
 
 
 

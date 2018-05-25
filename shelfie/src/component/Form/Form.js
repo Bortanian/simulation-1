@@ -8,7 +8,7 @@ export default class Form extends Component {
         this.state = {
             nameInput: '',
             priceInput: 0,
-            imageInput: 'http://www.4th-may.org/wp-content/uploads/2014/11/no-image.png'
+            imageInput: 'http://www.4th-may.org/wp-content/uploads/2014/11/no-image.png',
         }
 
         this.clearFields = this.clearFields.bind(this)
@@ -17,6 +17,8 @@ export default class Form extends Component {
         this.handlePriceChange = this.handlePriceChange.bind(this)
     }
 
+    
+    
 
     handleNameChange(val) {
         this.setState({
@@ -65,7 +67,7 @@ export default class Form extends Component {
                 </div>
                 <div className='input'>
                     <p>Price:</p>
-                    <input value={this.state.priceInput} onChange={(e) => this.handlePriceChange(e.target.value)}/>
+                    <input value={this.state.priceInput} type='number' onChange={(e) => this.handlePriceChange(e.target.value)}/>
                 </div>
                 <div>
                     <button onClick={() => this.clearFields()}>Cancel</button>

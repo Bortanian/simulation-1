@@ -10,9 +10,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      inventory: []
+      inventory: [],
     }
     this.getAllInventory = this.getAllInventory.bind(this)
+    
   }
   componentDidMount() {
     this.getAllInventory()
@@ -26,12 +27,14 @@ class App extends Component {
       
     });
   }
+
+  
   render() {
     return (
       <div className="App">
         <Header />
-        <Form getAll={this.getAllInventory}/>
-        <Dashboard inventory={this.state.inventory} />
+        <Form getAll={this.getAllInventory} current={this.state.currentProduct}/>
+        <Dashboard inventory={this.state.inventory} getAll={this.getAllInventory} />
       </div>
     );
   }
