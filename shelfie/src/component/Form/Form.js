@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 export default class Form extends Component {
     constructor(props){
@@ -9,7 +10,7 @@ export default class Form extends Component {
             imageInput: ''
         }
 
-        this.handleCancelClick = this.handleCancelClick.bind(this)
+        this.clearFields = this.clearFields.bind(this)
         this.handleImageChange = this.handleImageChange.bind(this)
         this.handleNameChange = this.handleNameChange.bind(this)
         this.handlePriceChange = this.handlePriceChange.bind(this)
@@ -31,13 +32,24 @@ export default class Form extends Component {
             imageInput: val
         })
     }
-    handleCancelClick() {
+    clearFields() {
         this.setState({
             nameInput: '',
             priceInput: 0,
             imageInput: ''
         })
     }
+    addToInventory() {
+        axios.post('/api/product', 
+            {
+            name: this.state.nameInput, 
+            price: this.state.priceInput,
+            image_url: this.state.imageInput
+            })
+        this.props.getAll();
+        this.clearFields();
+    }
+
     render(){
         return(
             <div>
@@ -45,8 +57,8 @@ export default class Form extends Component {
                 <input placeholder='image url...' value={this.state.imageInput} onChange={(e) => this.handleImageChange(e.target.value)}/>
                 <input placeholder='name...' value={this.state.nameInput} onChange={(e) => this.handleNameChange(e.target.value)}/>
                 <input placeholder='price...' value={this.state.priceInput} onChange={(e) => this.handlePriceChange(e.target.value)}/>
-                <button onClick={() => this.handleCancelClick()}>Cancel</button>
-                <button>Add to Inventory</button>
+                <button onClick={() => this.clearFields()}>Cancel</button>
+                <button onClick={() => this.addToInventory()}>Add to Inventory</button>
             </div>
         )
     }

@@ -1,9 +1,10 @@
 import React from 'react'
+import './Header.css';
 
 export default function Header() {
     return(
-        <div>
-            <p>Header</p>
+        <div className='header'>
+        <h3>SHELFIE</h3>
         </div> 
     )
 }

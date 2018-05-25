@@ -7,9 +7,10 @@ export default class Dashboard extends Component {
         let {inventory} = this.props;
         
         let mappedInventory = inventory.map((item, i) => {
+            console.log(item)
             return(
                 <div key={i}>
-                    <Product name={item.name} price={item.price} image={item.image} />
+                    <Product name={item.name} price={item.price} image={item.image_url} />
                 </div>
             )
         })

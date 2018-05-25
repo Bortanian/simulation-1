@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Dashboard from './component/Dashboard/Dashboard';
 import Form from './component/Form/Form';
@@ -13,8 +12,13 @@ class App extends Component {
     this.state = {
       inventory: []
     }
+    this.getAllInventory = this.getAllInventory.bind(this)
   }
   componentDidMount() {
+    this.getAllInventory()
+  }
+
+  getAllInventory(){
     axios.get('/api/inventory').then( (res) => {
       this.setState({
         inventory: res.data
@@ -25,12 +29,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <Header />
-        <Form />
+        <Form getAll={this.getAllInventory}/>
         <Dashboard inventory={this.state.inventory} />
       </div>
     );
