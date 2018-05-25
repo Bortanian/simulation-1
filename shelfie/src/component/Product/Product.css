@@ -1,0 +1,16 @@
+.product-box {
+    background-color: #D34735;
+    width: 500px;
+    height: 200px;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 15px;
+}
+.product-image {
+    height: 160px;
+    width: 200px;
+    border: 2px solid rgb(95, 95, 95);
+    float: left;
+}

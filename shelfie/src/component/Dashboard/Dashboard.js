@@ -16,7 +16,6 @@ export default class Dashboard extends Component {
         })
         return(
             <div>
-                <p>Dashboard</p>
                 {mappedInventory}
             </div>
         )
