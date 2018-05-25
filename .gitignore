@@ -25,3 +25,5 @@ config.js
 
 #stupid temp file
 *.TMP
+
+.env
